@@ -1,0 +1,26 @@
+{% extends 'common/base.html' %}
+{% block body_block %}
+  <div class="row">
+    <div class="col-xs-12">
+      <p><b>Streaming in preview for Business ID: </b>{{business_id}} {% if pixel_id %}<b>Pixel ID: </b>{{pixel_id}}{% endif %} {% if app_id %}<b>App ID: </b>{{app_id}}{% endif %}<b> From: </b>{{from_date|date:"r"}} <b>Until: </b>{{to_date|date:"r"}} </p>
+      <table class="table table-striped">
+          <tr>
+            <th>Order Timestamp</th>
+            <th>Order ID</th>
+            <th>Pixel/App ID</th>
+            <th>Attribution Type</th>
+            <th>Ad Account ID</th>
+            <th>Campaign ID</th>
+            <th>Adset ID</th>
+            <th>Ad ID</th>
+            <th>Action Type</th>
+            <th>Impression Cost</th>
+            <th>Click Cost</th>
+            <th>Impression Timestamp</th>
+            <th>Click Timestamp</th>
+            <th>Placement</th>
+            <th>Device</th>
+          </tr>
+{% endblock %}
+{% block base_container_close_tag %}{% endblock %}
+{% block end_html %}{% endblock %}

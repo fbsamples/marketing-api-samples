@@ -1,0 +1,48 @@
+{% extends 'common/sample_base.html' %}
+{% load bootstrap %}
+{% block sample_ux %}
+  <div class="row">
+    <div class="col-xs-12">
+        <div>
+          {% if data and data.reachestimate %}
+          <div style="overflow-x: scroll">
+            <h2>Product Audience Estimation</h2>
+            <p>for AdAccount: {{data.ad_account_id}} +
+              Product Set: {{data.product_set_id}}</p>
+            <pre style="display:none">{{data.reachestimate}}</pre>
+            <table class="table table-striped table-bordered">
+              <tr>
+                <td><b>Users</b></td>
+                <td>{{data.reachestimate.users|stringformat:"i"}}</td>
+              </tr>
+              <tr>
+                <td><b>Estimate Ready</b></td>
+                <td>{{data.reachestimate.estimate_ready}}</td>
+              </tr>
+              <tr>
+                <td><b>Bid Estimation</b></td>
+                <td>
+                  <ul>
+                    <li>min: {{data.reachestimate.bid_estimations.0.bid_amount_min}}
+                    <li>median: {{data.reachestimate.bid_estimations.0.bid_amount_median}}
+                    <li>max: {{data.reachestimate.bid_estimations.0.bid_amount_max}}
+                    <li>estimate_DAU: {{data.reachestimate.bid_estimations.0.estimate_DAU}}
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </div>
+          {% endif %}
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" value="Estimate" class="btn btn-success btn-lg">Estimate</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

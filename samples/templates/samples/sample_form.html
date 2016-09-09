@@ -1,0 +1,20 @@
+{% extends 'common/sample_base.html' %}
+{% load bootstrap %}
+{% block sample_ux %}
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form enctype="multipart/form-data" method="post" target="{{target}}">
+          {% csrf_token %}
+          {{ form|bootstrap }}
+          <button type="submit" value="{{button_text}}"
+            class="btn btn-success btn-lg">
+            {{button_text}}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

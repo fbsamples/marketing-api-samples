@@ -1,0 +1,66 @@
+{% extends 'common/base.html' %}
+{% load bootstrap %}
+{% block head_auxiliary %}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-okaidia.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-python.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <link href="{{ STATIC_URL }}css/gallery.css" rel="stylesheet">
+    <link href="/static/css/codehilite.css" rel="stylesheet" type="text/css">
+    <style>.fb .sample-form {max-width: none}</style>
+{% endblock %}
+
+{% block body_block %}
+  <div class="row">
+    <!-- Main -->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+
+      {% if request.session.fbuserid %}
+        <div class="row" style="margin-bottom:50px">
+          <div class="col-xs-12">
+            <div class="jumbotron">
+              <h1>UI Components for Marketing Automation Tools</h1>
+              <p>
+                Learn how the re-usable UI components work, and you can check
+                out the gallery page that lists out all the UI components.
+              </p>
+              <a href="/components/gallery/" class="btn btn-ar btn-primary">
+                Check Gallery
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            {{ content|safe }}
+          </div>
+        </div>
+      {% else %}
+        <!-- No logged in user, show login form -->
+        {% block login_form %}
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="jumbotron">
+            <h1>UI Components for Marketing Automation Tools</h1>
+            <form method="post" role="form" action="{% url 'auth:oauth' %}">
+              {% csrf_token %}
+              <fieldset>
+                <input type="hidden" name="next"
+                  value="{{request.get_full_path }}" />
+                <button type="submit"
+                  class="btn btn-lg btn-primary login-button">
+                  Log In To See the UI Components
+                </button>
+              </fieldset>
+            </form>
+          </div>
+          </div>
+        </div>
+        {% endblock %}
+      {% endif %}
+
+  </div>
+{% endblock %}

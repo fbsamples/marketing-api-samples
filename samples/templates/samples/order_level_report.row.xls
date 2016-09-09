@@ -1,0 +1,19 @@
+{% for orderid in data %}{% for attribution in orderid.attributions %}
+          <ss:Row>
+            <ss:Cell ss:StyleID="DateTime"><ss:Data ss:Type="DateTime">{{orderid.order_timestamp|slice:":-5"}}</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">{{orderid.order_id}}</ss:Data></ss:Cell>
+            <ss:Cell ss:StyleID="Integer">{% if orderid.pixel_id %}<ss:Data ss:Type="String">{{orderid.pixel_id}}</ss:Data>{% endif %}</ss:Cell>
+            <ss:Cell ss:StyleID="Integer">{% if orderid.app_id %}<ss:Data ss:Type="String">{{orderid.app_id}}</ss:Data>{% endif %}</ss:Cell>
+            <ss:Cell ss:StyleID="Integer">{% if orderid.attribution_type %}<ss:Data ss:Type="String">{{orderid.attribution_type}}</ss:Data>{% endif %}</ss:Cell>
+            <ss:Cell ss:StyleID="Integer"><ss:Data ss:Type="String">{{attribution.account_id}}</ss:Data></ss:Cell>
+            <ss:Cell ss:StyleID="Integer"><ss:Data ss:Type="String">{{attribution.campaign_id}}</ss:Data></ss:Cell>
+            <ss:Cell ss:StyleID="Integer"><ss:Data ss:Type="String">{{attribution.adset_id}}</ss:Data></ss:Cell>
+            <ss:Cell ss:StyleID="Integer"><ss:Data ss:Type="String">{{attribution.ad_id}}</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">{{attribution.action_type}}</ss:Data></ss:Cell>
+            <ss:Cell ss:StyleID="Currency"><ss:Data ss:Type="Number">{{attribution.impression_cost}}</ss:Data></ss:Cell>
+            <ss:Cell ss:StyleID="Currency">{% if attribution.click_timestamp %}<ss:Data ss:Type="Number">{{attribution.click_cost}}</ss:Data>{% endif %}</ss:Cell>
+            <ss:Cell ss:StyleID="DateTime"><ss:Data ss:Type="DateTime">{{attribution.impression_timestamp|slice:":-5"}}</ss:Data></ss:Cell>
+            <ss:Cell ss:StyleID="DateTime">{% if attribution.click_timestamp %}<ss:Data ss:Type="DateTime">{{attribution.click_timestamp|slice:":-5"}}</ss:Data>{% endif %}</ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">{{attribution.placement}}</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">{{attribution.device}}</ss:Data></ss:Cell>
+          </ss:Row>{% endfor %}{% endfor %}

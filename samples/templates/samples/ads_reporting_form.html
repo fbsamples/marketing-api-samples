@@ -1,0 +1,40 @@
+{% extends 'common/sample_base.html' %}
+{% load bootstrap %}
+{% block sample_ux %}
+  <div class="row">
+    <div class="col-xs-12">
+        <div>
+          {% if data and data.ads_reports %}
+          <div style="overflow-x: scroll">
+            <table class="table table-striped table-bordered">
+              {% for row in data.ads_reports %}
+                {% if forloop.first %}
+                  <tr>
+                    {% for col in row %}
+                      <th>{{col}}</th>
+                    {% endfor %}
+                  </tr>
+                {% else %}
+                  <tr>
+                    {% for col in row %}
+                      <td>{{col}}</td>
+                    {% endfor %}
+                  </tr>
+                {% endif %}
+              {% endfor %}
+            </table>
+          </div>
+          {% endif %}
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" value="Get Ads Reporting" class="btn btn-success btn-lg">Get</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'common/base.html' %}
+<div class="col-md-10 col-sm-12 col-xs-12">
+  {% block body_block %}
+  <div class="message">
+    <div class="bs-callout bs-callout-danger">
+      <h4>Something went wrong</h4>
+	{{ message }}
+    </div>
+  </div>
+  {% endblock %}
+</div>

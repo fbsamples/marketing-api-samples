@@ -1,0 +1,180 @@
+{% extends 'common/base.html' %}
+{% load bootstrap %}
+{% block head_auxiliary %}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-okaidia.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-python.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <link href="{{ STATIC_URL }}css/gallery.css" rel="stylesheet">
+    <link href="/static/css/codehilite.css" rel="stylesheet" type="text/css">
+    <style>.fb .sample-form {max-width: none}</style>
+{% endblock %}
+
+​​
+{% block body_tag %}
+<body class="fb" data-spy="scroll" data-target=".left-nav" style="overflow: visible;">
+{% endblock %}
+
+{% block body_block %}
+  <div class="row">
+    <!-- Left Navigation -->
+    <div class="col-md-3 hidden-sm hidden-xs">
+      <div class="left-nav" data-spy="affix" data-offset-top="100">
+        <h3>Navigation</h3>
+        <ul class="nav">
+          <li><a href="#top-anchor">Top</a></li>
+          <!-- List of components anchors -->
+          {% for bound_field in form %}
+            <li><a href="#{{ bound_field.field.name }}">
+              {{ bound_field.field.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="col-md-9 col-sm-12 col-xs-12">
+      <a id="top-anchor" class="anchor"></a>
+
+      <!-- Sample description -->
+
+
+      <div class="row sample-desc">
+        <div class="col-xs-12">
+
+          <h1>Gallery for UI components</h1>
+          <p>
+            Back to the <a href="/components/">components overview</a> page.
+          </p>
+          <p>
+            In making of the samples in this site, we wanted to emphasize the
+            use cases of our marketing API, and the implementations using our,
+            Python SDK. To make it really simple to build a sample that can
+            get various parameters from user to execute on the API, we have
+            made a list of re-usable components that can largely accelerate
+            development process.
+          </p>
+          <p>
+            Here are a list of libraries we used for building the components:
+            <ul class="list-unstyled">
+              <li>
+                <span class="icon-ar icon-ar-sm"><i class="fa fa-code"></i></span>
+                <a target="_blank" href="http://requirejs.org/">RequireJS</a>
+              </li>
+              <li>
+                <span class="icon-ar icon-ar-sm"><i class="fa fa-code"></i></span>
+                <a target="_blank" href="https://facebook.github.io/react/">React</a>
+              </li>
+              <li>
+                <span class="icon-ar icon-ar-sm"><i class="fa fa-code"></i></span>
+                <a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>
+              </li>
+              <li>
+                <span class="icon-ar icon-ar-sm"><i class="fa fa-code"></i></span>
+                <a target="_blank" href="https://brianreavis.github.io/selectize.js/">selectize.js</a>
+              </li>
+            </ul>
+          </p>
+          <p>
+            And here is a utility JS script that we use to handle the logged in
+            user session and AJAX request to Facebook API:
+          </p>
+          <label>
+            <i class="fa fa-file-text"></i>
+            <a target="_blank"
+              href="{{ STATIC_URL }}scripts/fbutils.js">
+              fbutils.js
+            </a>
+          </label>
+          <p class="source_link">
+            <a href="javascript:void(0);"
+              onclick="toggle('fbutils', this);">
+              Show source
+            </a>
+          </p>
+          <div id="fbutils"
+            class="source" style="display:none">
+            <pre class="line-numbers"><code
+              class="language-javascript">{{fbutils}}
+            </code></pre>
+          </div>
+          <p>
+            The following is a list of components we used in developing the samples:
+          </p>
+        </div>
+      </div>
+
+      {% block sample_ux %}
+      <div class="row">
+        <div class="col-xs-12">
+          <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {% for bound_field in form %}
+              <hr>
+              <p id="{{ bound_field.field.name }}" class="anchor"></p>
+              <h3>{{ bound_field.field.name }}</h3>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  {{ bound_field|bootstrap }}
+                  <label>Description</label>
+                  {{ bound_field.field.desc|safe }}
+                  {% if bound_field.field.js_modules %}
+                    <p>
+                      <span class="icon-ar icon-ar-sm">
+                        <i class='fa fa-code'></i>
+                      </span>
+                      This component used following JS code:
+                    </p>
+                    {% for module in bound_field.field.js_modules %}
+                      <div class="source_cont">
+                        <label>
+                          <i class="fa fa-file-text"></i>
+                          <a target="_blank"
+                            href="{{ STATIC_URL }}scripts/components/{{ module.name }}">
+                            {{ module.name }}
+                          </a>
+                        </label>
+                        <p class="source_link">
+                          <a href="javascript:void(0);"
+                            onclick="toggle('{{ module.name }}', this);">
+                            Show source
+                          </a>
+                        </p>
+                        <div id="{{ module.name }}"
+                          class="source" style="display:none">
+                          <pre class="line-numbers"><code
+                            class="language-javascript">{{module.content}}
+                          </code></pre>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </form>
+
+        </div>
+      </div>
+      <script type="text/javascript">
+        function toggle(id, $link) {
+          $node = document.getElementById(id);
+          if (!$node)
+            return;
+          if (!$node.style.display || $node.style.display == 'none') {
+            $node.style.display = 'block';
+            $link.innerHTML = 'Hide source';
+          } else {
+            $node.style.display = 'none';
+            $link.innerHTML = 'Show source';
+          }
+        }
+      </script>
+      {% endblock %}
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'common/base.html' %}
+{% block body_block %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Samples</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table table-striped">
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>View Class</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            {% for sample in object_list %}
+              <tr>
+                <td>{{sample.id}}</td>
+                <td>{{sample.friendly_name}}</td>
+                <td>{{sample.description}}</td>
+                <td>{{sample.view_class}}</td>
+                <td>
+                  <a href="{% url "dash:sample_details" sample.id %}">details</a> |
+                  <a href="{% url "dash:sample_edit" sample.id %}">edit</a> |
+                  <a href="{% url "dash:sample_delete" sample.id %}">delete</a>
+                  </td>
+              </tr>
+            {% endfor %}
+          </table>
+          <a href="{% url "dash:sample_add" %}" class="btn btn-success">New Sample</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

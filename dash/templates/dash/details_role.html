@@ -1,0 +1,50 @@
+{% extends 'common/base.html' %}
+{% load bootstrap %}
+{% block body_block %}
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <h1>
+        <a href="{% url "dash:role_list" %}">Roles</a>
+        »
+        Role "{{ object.name }}"
+      </h1>
+      <hr/>
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <table class="table table-bordered">
+            <tr>
+              <th width="30%">Name</th>
+              <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+              <th>Description</th>
+              <td>{{ object.description}}</td>
+            </tr>
+            <tr>
+              <th>FB Users in This Role</th>
+              <td>
+                {% if object.current_fbusers %}
+                  <ul>
+                  {% for user in object.current_fbusers %}
+                    {% if 'unknown' in user %}
+                    <li><img src="//graph.facebook.com/{{user.fb_userid}}/picture"> {{user.fb_userid}}
+                    {% else %}
+                    <li><img src="//graph.facebook.com/{{user.fb_userid}}/picture"> {{user.full_name}}({{user.fb_userid}})
+                    {% endif %}
+                      <sup>
+                        <a href="https://www.facebook.com/{{user.fb_userid}}" target="_blank">[profile^]</a>
+                      </sup>
+                    </li>
+                  {% endfor %}
+                  </ul>
+                {% else %}
+                  Nobody yet!
+                {% endif %}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

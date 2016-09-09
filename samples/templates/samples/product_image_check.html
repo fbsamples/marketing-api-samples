@@ -1,0 +1,60 @@
+{% extends 'samples/sample_form.html' %}
+{% block sample_result %}
+{% if data.total_count > 0 %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Category', 'Product count'],
+      ['Default image >= 600x600px',  {{data.image_ok_count}}],
+      ['Default image < 600x600px, but 1+ additional images >= 600x600px', {{data.additional_image_ok_count}}],
+      ['Default image and additional images < 600x600px',  {{data.image_not_ok_count}}-{{data.additional_image_ok_count}}],
+    ]);
+
+    var options = {
+      title: 'Products',
+      pieHole: 0.4,
+      slices: {
+        0: { color: 'green' },
+        1: { color: 'yellow' },
+        2: { color: 'red' }
+      },
+      pieSliceTextStyle: { color: 'black'},
+      pieSliceText: 'value',
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+    chart.draw(data, options);
+  }
+</script>
+<table>
+  <tr>
+    <td>
+    <b>{{data.total_count}}</b> Products Analyzed
+
+  </td>
+  <td>
+    <div id="donutchart" style="width: 600px; height: 300px;"></div>
+  </td>
+  </tr>
+  {% if data.small_images_count > 0 %}
+  <tr>
+    <td colspan="2">
+      For example, the default images of the following products are below
+      600x600px:
+      <br/>
+      {% for prod_url, img_url in data.small_images %}
+          <a target='_blank' href='{{prod_url}}'>
+          <img src='{{img_url}}' width='100'
+            style='border:2px solid red'></a>&nbsp;
+      {% endfor %}
+    </td>
+  </tr>
+  {% endif %}
+  </table>
+{% else %}
+    This product catalog is empty.
+{% endif %}
+{% endblock %}

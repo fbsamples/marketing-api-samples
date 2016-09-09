@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+{% block seo_meta_tags %}
+  <title>Facebook Marketing API Code Samples | For Developers</title>
+{% endblock %}
+{% block head_auxiliary %}
+  <link rel="stylesheet" href="/static/css/samples.css" type="text/css">
+{% endblock %}
+{% block body_block %}
+<div class="container">
+  <section>
+  <div class="row">
+    <div class="col-sm-12 col-xs-12">
+      <div class="jumbotron">
+        <h1>Marketing API Solution Samples.</h1>
+        <p>
+            A library of code for developers that features solutions to common tasks using Facebook Marketing API. These code samples allow you to use the power of the Marketing API to automation ad creation and management.
+        </p>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section>  
+    <div class="row samples">
+      {% for sample in object_list %}
+        {% if not sample.hide_in_gallery %}
+            <div class="col-sm-4 col-xs-12 sample" style="background-image:url(/static/images/{{sample.id}}.png)">
+                <a class="sample-body" href="{% url "samples:sample" sample.id %}">
+                <h4>{{sample.friendly_name}}</h4>
+                <p>{{sample.description}}</p>
+                </a>
+            </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <!-- /.row -->
+    </section>
+</div><!-- container -->    
+{% endblock %}

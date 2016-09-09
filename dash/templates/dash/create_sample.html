@@ -1,0 +1,18 @@
+{% extends 'common/base.html' %}
+{% load bootstrap %}
+{% block body_block %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Sample Info</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" value="Save" class="btn btn-success">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

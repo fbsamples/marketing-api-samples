@@ -1,0 +1,29 @@
+.samples {
+    margin-top: 40px;
+}
+.samples .sample {
+  background-repeat: no-repeat;
+  background-size: 80px 80px;
+  height: 100px;
+  background-position-y: center;
+  margin-bottom: 10px;
+}
+.samples .sample h4 {
+  margin: 27px 0 5px 0;
+}
+.samples .sample p {
+  color: rgba(0,0,0,0.6);
+}
+
+.samples h2 {
+  font-weight: 200;
+  font-size: 19px;
+  margin-bottom: 40px;
+  line-height: 1.4em;
+}
+.sample-body {
+  display: block;
+  padding-left: 100px;
+  line-height: 1em;
+  font-size: 16px;
+}

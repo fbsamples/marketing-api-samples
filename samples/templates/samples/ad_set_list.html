@@ -1,0 +1,63 @@
+{% extends 'common/sample_base.html' %}
+{% block base_container %}
+<div class="container-fluid main-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-striped">
+          <tr>
+            <th>Ad Set ID</th>
+            <th>Objective</th>
+            <th>Placement</th>
+            <th>Objective Supported</th>
+            <th>IG Audience Size / IG vs FB</th>
+            <th>Creative IG Ready</th>
+            <th>Overall Suitability</th>
+            <th>Suggestions</th>
+            <th>Preview on Instagram (the Instagram account is to be replaced by yours)</th>
+          </tr>
+        {% for adset in ad_sets %}
+          <tr>
+            <td><a href="https://www.facebook.com/ads/manager/adset/ads/?act={{account_id}}&ids={{adset.id}}">{{adset.id}}</a></td>
+            <td>{{adset.c_objective}}</td>
+            <td><ul>{{adset.page_types|safe}}</ul></td>
+            <td>{% if adset.objective_supported = 0 %}
+                <span class="label label-danger">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </span>
+                {% elif adset.objective_supported = 1 %}
+                <span class="label label-success">
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </span>
+                {% else %}
+                  Coming soon!
+                {% endif %}
+            </td>
+            <td>{{adset.ig_audience}} / {{adset.audience}}%</td>
+            <td>{% if adset.creative_ready = 0 %}
+                <span class="label label-danger">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </span>
+                {% else %}
+                  <span class="label label-success">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                  </span>
+                {% endif %}
+            </td>
+            <td style="white-space: nowrap;">
+              {% for i in "xxxxx" %}
+                {% if forloop.counter0 < adset.eligibility %}
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                {% else %}
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                {% endif %}
+              {% endfor %}
+            </td>
+            <td><ul>{{adset.suggestion|safe}}</ul></td>
+            <td>{{adset.preview_url|safe}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

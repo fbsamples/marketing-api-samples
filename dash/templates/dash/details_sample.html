@@ -1,0 +1,42 @@
+{% extends 'common/base.html' %}
+{% block body_block %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Sample: {{ object.friendly_name }}</h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Id</th>
+              <td>{{ object.id}}</td>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <td>{{ object.friendly_name }}</td>
+            </tr>
+            <tr>
+              <th>Description</th>
+              <td>{{ object.description}}</td>
+            </tr>
+            <tr>
+              <th>View Module</th>
+              <td>{{ object.view_module}}</td>
+            </tr>
+            <tr>
+              <th>View Class</th>
+              <td>{{ object.view_class}}</td>
+            </tr>
+            <tr>
+              <th>Roles To Check</th>
+              <td>{{ object.roles_to_check }}</td>
+            </tr>
+            <tr>
+              <th>Description Meta Tag</th>
+              <td>{{ object.seo_description }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+{% for orderid in data %}{% for attribution in orderid.attributions %}{{orderid.order_timestamp}},"{{orderid.order_id|addslashes}}",{{orderid.pixel_id}},{{orderid.app_id}},{{orderid.attribution_type}},{{attribution.account_id}},{{attribution.campaign_id}},{{attribution.adset_id}},{{attribution.ad_id}},{{attribution.action_type}},{{attribution.impression_cost}},{% if attribution.click_timestamp %}{{attribution.click_cost}}{% endif %},{{attribution.impression_timestamp}},{{attribution.click_timestamp}},{{attribution.placement}},{{attribution.device}}
+{% empty %}{{orderid.order_timestamp}},"{{orderid.order_id|addslashes}}",{{orderid.pixel_id}},{{orderid.app_id}},{{orderid.attribution_type}}
+{% endfor %}{% endfor %}

@@ -1,0 +1,277 @@
+#content {
+width: 70%;
+max-width: 850px;
+float: left;
+padding: 30px 60px;
+border-left: 1px solid #ddd;
+}
+#sidebar {
+width: 25%;
+float: left;
+padding: 30px;
+overflow: hidden;
+}
+#nav {
+font-size: 130%;
+margin: 0 0 15px 0;
+}
+
+#top {
+display: block;
+position: fixed;
+bottom: 5px;
+left: 5px;
+font-size: .85em;
+text-transform: uppercase;
+}
+
+pre, code, .mono, .name {
+font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+
+.title {
+font-size: 23px;
+}
+.section-title {
+margin-top: 2em;
+}
+.ident {
+font-weight: bold;
+}
+
+code {
+background: #f9f9f9;
+}
+
+pre {
+background: #fdf6e3;
+border: 1px solid #E1E1E8;
+box-shadow: 2px 2px 0 #f3f3f3;
+margin: 0 30px;
+padding: 15px 30px;
+font-size: 11px;
+}
+
+.codehilite {
+margin: 0 30px 10px 30px;
+}
+
+.codehilite pre {
+margin: 0;
+}
+.codehilite .err { background: #ff3300; color: #fff !important; }
+
+table#module-list {
+font-size: 110%;
+}
+
+table#module-list tr td:first-child {
+padding-right: 10px;
+white-space: nowrap;
+}
+
+table#module-list td {
+vertical-align: top;
+padding-bottom: 8px;
+}
+
+table#module-list td p {
+margin: 0 0 7px 0;
+}
+
+.def {
+display: table;
+}
+
+.def p {
+display: table-cell;
+vertical-align: top;
+text-align: left;
+}
+
+.def p:first-child {
+white-space: pre-wrap;
+text-indent: -2em;
+padding-left: 2em;
+}
+
+.def p:last-child {
+width: 100%;
+}
+
+
+#index {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+ul#index .class_name {
+/* font-size: 110%; */
+font-weight: bold;
+}
+#index ul {
+margin: 0;
+}
+.keyword {
+color: #6d84b4;
+}
+.prams {
+color: #6d84b4;
+}
+.item {
+margin: 0 0 15px 0;
+}
+
+.item .class {
+margin: 0 0 25px 30px;
+}
+
+.item .class ul.class_list {
+margin: 0 0 20px 0;
+}
+
+.item .name {
+margin: 0;
+/*font-size: 15px;*/
+border-radius: 3px;
+display: inline-block;
+min-width: 40%;
+}
+
+.item .empty_desc {
+margin: 0 0 5px 0;
+padding: 0;
+}
+
+.item .inheritance {
+margin: 3px 0 0 30px;
+}
+
+.item .inherited {
+color: #666;
+}
+
+.item .desc {
+padding: 0 8px;
+margin: 0;
+}
+
+.item .desc p {
+margin: 0 0 10px 0;
+}
+
+.source_cont {
+margin: 0;
+padding: 0;
+}
+
+.source_link a {
+background: #3b5998;
+font-weight: 300;
+text-transform: uppercase;
+color: #fff;
+padding: 3px 8px;
+border-radius: 2px;
+font-size: 12px;
+}
+.source_link a:hover {
+background-color: #6d84b4;
+color: #fff;
+}
+
+.source {
+display: none;
+max-height: 600px;
+overflow-y: scroll;
+margin-bottom: 15px;
+}
+
+.source .codehilite {
+margin: 0;
+}
+
+.desc h1, .desc h2, .desc h3 {
+font-size: 100% !important;
+}
+.clear {
+clear: both;
+}
+.codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #fdf6e3; }
+.codehilite .c { color: #408080; font-style: italic }
+.codehilite .err { border: 1px solid #FF0000 }
+.codehilite .k { color: #859900 }
+.codehilite .o { color: #666666 }
+.codehilite .cm { color: #408080; font-style: italic }
+.codehilite .cp { color: #BC7A00 }
+.codehilite .c1 { color: #408080; font-style: italic }
+.codehilite .cs { color: #408080; font-style: italic }
+.codehilite .gd { color: #A00000 }
+.codehilite .ge { font-style: italic }
+.codehilite .gr { color: #FF0000 }
+.codehilite .gh { color: #000080; font-weight: bold }
+.codehilite .gi { color: #00A000 }
+.codehilite .go { color: #888888 }
+.codehilite .gp { color: #000080; font-weight: bold }
+.codehilite .gs { font-weight: bold }
+.codehilite .gu { color: #800080; font-weight: bold }
+.codehilite .gt { color: #0044DD }
+.codehilite .kc { color: #008000; font-weight: bold }
+.codehilite .kd { color: #008000 }
+.codehilite .kn { color: #859900 }
+.codehilite .kp { color: #008000 }
+.codehilite .kr { color: #008000; font-weight: bold }
+.codehilite .kt { color: #B00040 }
+.codehilite .m { color: #269186 }
+.codehilite .s { color: #269186 }
+.codehilite .n { color: #bd3613}
+.codehilite .na { color: #7D9029 }
+.codehilite .nb { color: #008000 }
+.codehilite .nc { color: #b58900 }
+.codehilite .no { color: #880000 }
+.codehilite .nd { color: #AA22FF }
+.codehilite .ni { color: #999999 }
+.codehilite .ne { color: #D2413A }
+.codehilite .nf { color: #bd3613 }
+.codehilite .nl { color: #A0A000 }
+.codehilite .nn { color: #bd3613 }
+.codehilite .nt { color: #008000 }
+.codehilite .nv { color: #19177C }
+.codehilite .ow { color: #AA22FF }
+.codehilite .w { color: #bbbbbb }
+.codehilite .mb { color: #666666 }
+.codehilite .mf { color: #666666 }
+.codehilite .mh { color: #666666 }
+.codehilite .mi { color: #666666 }
+.codehilite .mo { color: #666666 }
+.codehilite .sb { color: #BA2121 }
+.codehilite .sc { color: #BA2121 }
+.codehilite .sd { color: #269186 }
+.codehilite .s2 { color: #BA2121 }
+.codehilite .se { color: #BB6622; font-weight: bold }
+.codehilite .sh { color: #BA2121 }
+.codehilite .si { color: #BB6688; font-weight: bold }
+.codehilite .sx { color: #008000 }
+.codehilite .sr { color: #BB6688 }
+.codehilite .s1 { color: #BA2121 }
+.codehilite .ss { color: #19177C }
+.codehilite .bp { color: #859900 }
+.codehilite .vc { color: #19177C }
+.codehilite .vg { color: #19177C }
+.codehilite .vi { color: #19177C }
+.codehilite .il { color: #666666 }
+#section-intro p {
+font-size: 17px;
+margin: 15px 0;
+}
+h2.section-title {
+font-size: 29px;
+}
+.pdoc-wrapper h3 {
+font-size: 21px;
+font-weight: 500;
+}
+.item .desc p {
+font-size: 15px;
+margin: 10px 0 20px;
+}

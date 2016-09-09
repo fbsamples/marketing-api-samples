@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<ss:Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
+    <ss:Styles>
+      <ss:Style ss:ID="Header">
+        <ss:Font ss:Bold="1" />
+      </ss:Style>
+      <ss:Style ss:ID="Integer">
+        <NumberFormat ss:Format="0" />
+      </ss:Style>
+      <ss:Style ss:ID="DateTime">
+        <ss:NumberFormat ss:Format="yyyy-mm-dd hh:mm:ss" />
+      </ss:Style>
+      <ss:Style ss:ID="Currency">
+        <ss:NumberFormat ss:Format="&quot;$&quot;#,##0.00" />
+      </ss:Style>
+    </ss:Styles>
+    <ss:Worksheet ss:Name="Data">
+        <ss:Table>
+          <ss:Row ss:StyleID="Header">
+            <ss:Cell><ss:Data ss:Type="String">Order Level Attribution Report</ss:Data></ss:Cell>
+          </ss:Row>
+          <ss:Row>
+            <ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Business ID:</ss:Data></ss:Cell><ss:Cell><ss:Data ss:Type="String">{{business_id}}</ss:Data></ss:Cell>
+            <ss:Cell />
+            {% if pixel_id %}
+            <ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Pixel ID:</ss:Data></ss:Cell><ss:Cell><ss:Data ss:Type="String">{{pixel_id}}</ss:Data></ss:Cell>
+            <ss:Cell />
+            {% endif %}
+            {% if app_id %}
+            <ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">App ID:</ss:Data></ss:Cell><ss:Cell><ss:Data ss:Type="String">{{app_id}}</ss:Data></ss:Cell>
+            <ss:Cell />
+            {% endif %}
+            <ss:Cell ss:StyleID="Header">
+              <ss:Data ss:Type="String">From:</ss:Data>
+            </ss:Cell>
+            <ss:Cell>
+              <ss:Data ss:Type="String">{{from_date|date:"r"}}</ss:Data>
+            </ss:Cell>
+            <ss:Cell />
+            <ss:Cell ss:StyleID="Header">
+              <ss:Data ss:Type="String">Until:</ss:Data>
+            </ss:Cell>
+            <ss:Cell>
+              <ss:Data ss:Type="String">{{to_date|date:"r"}}</ss:Data>
+            </ss:Cell>
+          </ss:Row>
+          <ss:Row />
+          <ss:Row ss:StyleID="Header">
+            <ss:Cell><ss:Data ss:Type="String">Order Timestamp</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Order ID</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Pixel ID</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">App ID</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Attribution Type</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Ad Account ID</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Campaign ID</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Adset ID</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Ad ID</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Action Type</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Impression Cost</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Click Cost</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Impression Timestamp</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Click Timestamp</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Placement</ss:Data></ss:Cell>
+            <ss:Cell><ss:Data ss:Type="String">Device</ss:Data></ss:Cell>
+          </ss:Row>

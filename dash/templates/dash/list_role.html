@@ -1,0 +1,35 @@
+{% extends 'common/base.html' %}
+{% load bootstrap %}
+{% block body_block %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>
+        <a href="{% url "dash:role_list" %}">Roles</a>
+      </h1>
+      <hr />
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <h4>Existing Roles</h4>
+          <table class="table table-striped">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+            {% for role in object_list %}
+            <tr>
+              <td>{{role.name}}</td>
+              <td>{{role.description}}</td>
+              <td>
+                <a href="{% url "dash:role_details" role.name %}">
+                  details
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

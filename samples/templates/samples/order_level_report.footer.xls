@@ -1,0 +1,4 @@
+        </ss:Table>
+        <x:AutoFilter x:Range="R4C1:R{{cumulative_num_outline_rows|add:4}}C16" />
+    </ss:Worksheet>
+</ss:Workbook>

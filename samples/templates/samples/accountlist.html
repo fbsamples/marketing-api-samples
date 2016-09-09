@@ -1,0 +1,23 @@
+{% extends 'common/sample_base.html' %}
+{% block sample_ux %}
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Timezone</th>
+            <th>Spent</th>
+            <th>Currency</th>
+          </tr>
+        {% for account in accounts %}
+          <tr>
+            <td><a href="https://www.facebook.com/ads/manage/home/?account_id={{account.account_id}}">{{account.name}}</td>
+            <td>{{account.timezone_name}}</td>
+            <td>{{ account.amount_spent}}</td>
+            <td>{{account.currency}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+{% endblock %}

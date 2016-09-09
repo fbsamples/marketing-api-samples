@@ -1,0 +1,22 @@
+      {% for orderid in data|slice:preview_slice %}
+        <tr>
+          <td rowspan="{{orderid.attributions|length}}">{{orderid.order_timestamp|slice:":10"}} {{orderid.order_timestamp|slice:"11:19"}}</td>
+          <td rowspan="{{orderid.attributions|length}}">{{orderid.order_id}}</td>
+          <td rowspan="{{orderid.attributions|length}}">{{orderid.pixel_id}} {{orderid.app_id}}</td>
+          <td rowspan="{{orderid.attributions|length}}">{{orderid.attribution_type}}</td>
+          {% for attribution in orderid.attributions %}
+          <td>{{attribution.account_id}}</td>
+          <td>{{attribution.campaign_id}}</td>
+          <td>{{attribution.adset_id}}</td>
+          <td>{{attribution.ad_id}}</td>
+          <td>{{attribution.action_type}}</td>
+          <td>{{attribution.impression_cost}}</td>
+          <td>{% if attribution.click_timestamp %}{{attribution.click_cost}}{% endif %}</td>
+          <td>{{attribution.impression_timestamp|slice:":10"}} {{attribution.impression_timestamp|slice:"11:19"}}</td>
+          <td>{{attribution.click_timestamp|slice:":10"}} {{attribution.click_timestamp|slice:"11:19"}}</td>
+          <td>{{attribution.placement}}</td>
+          <td>{{attribution.device}}</td>
+          </tr>
+          <tr>
+          {% endfor %}
+        </tr>{% endfor %}

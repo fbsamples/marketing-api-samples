@@ -1,0 +1,125 @@
+.header-full-title,
+#ar-brand {
+  background-image: url('/static/images/fblogo.png');
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: 15px 50%;
+  padding-left: 50px;
+}
+
+.selectize-input { max-height: 34px; }
+.selectize-input img,
+.selectize-dropdown-content img {
+  max-height: 20px;
+  margin-right: 5px;
+}
+.multi .selectize-input {max-height: 1000px;}
+.composer-body {padding: 5px;}
+.input-group-addon {cursor: pointer;}
+
+.affix {
+  top: 0px;
+  max-width: 100%;
+}
+.affix-top {
+  max-width: 100%;
+}
+.affix-bottom {
+  max-width: 100%;
+}
+
+.left-nav {
+  padding-top: 20px;
+}
+
+.left-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.left-nav ul li a {
+  padding: 0px 0px 0px 10px;
+}
+
+.left-nav .active>a {
+  color: #3A5A98;
+  border-left: 2px solid #0099da;
+}
+
+#footer {
+  background-color: #333;
+  color: #ccc;
+  padding: 17px 0;
+  text-align: center;
+  border-top: solid 1px #555;
+}
+
+/* Bootstrap callout */
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+.bs-callout-error {
+    border-left-color: #d9534f;
+}
+.bs-callout-error h4 {
+    color: #d9534f;
+}
+.message {
+  padding-top: 70px;
+  padding-left: 10px;
+}

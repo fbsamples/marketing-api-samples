@@ -1,0 +1,8 @@
+body .anchor {
+  position: relative;
+  top: -65px;
+}
+
+.panel .fa-file-text {
+  margin-right: 8px;
+}
