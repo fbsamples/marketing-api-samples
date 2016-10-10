@@ -19,7 +19,7 @@
           <tr>
             <td><a href="https://www.facebook.com/ads/manager/adset/ads/?act={{account_id}}&ids={{adset.id}}">{{adset.id}}</a></td>
             <td>{{adset.c_objective}}</td>
-            <td><ul>{{adset.page_types|safe}}</ul></td>
+            <td><ul>{{adset.publisher_platforms|safe}}</ul></td>
             <td>{% if adset.objective_supported = 0 %}
                 <span class="label label-danger">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

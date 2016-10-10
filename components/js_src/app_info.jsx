@@ -76,9 +76,27 @@ define(
       },
 
       getInitialState: function() {
+        const value = this.props.initialValue;
+        let selectedAppInfo = {};
+
+        if (value && 'id' in value) {
+          const id = value.id.toString();
+          const apps = this.props.apps;
+
+          apps.map(function(app) {
+            if (app.id === id) {
+              selectedAppInfo = app;
+            }
+          });
+
+          if (value !== selectedAppInfo) {
+            this.props.onChange(selectedAppInfo);
+          }
+        }
+
         return {
           // AppInfo JSON for the current selected app
-          appInfo: this.props.initialValue,
+          appInfo: selectedAppInfo
         };
       },
 

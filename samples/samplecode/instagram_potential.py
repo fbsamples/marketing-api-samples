@@ -111,10 +111,12 @@ class InstagramAdsPotential:
                 publisher_platforms = targeting.get('publisher_platforms', None)
                 pp_str = ''
                 if publisher_platforms is None:
-                    result['publisher_platforms'] = 'DEFAULT'
+                    result['publisher_platforms'] = '<li>DEFAULT</li>'
                 else:
                     for pp in publisher_platforms:
-                        pp_str += '<li>' + self.translate_publisher(str(pp))
+                        pp_str += ('<li>' +
+                                   self.translate_placement_publisher(str(pp)) +
+                                   '</li>')
                     result['publisher_platforms'] = pp_str
 
                 params = {
@@ -122,9 +124,12 @@ class InstagramAdsPotential:
                     'targeting_spec': targeting,
                     'optimize_for': AdSet.OptimizationGoal.impressions,
                 }
-                if "instagram" in targeting['publisher_platforms']:
+
+                if publisher_platforms is not None and "instagram" in \
+                        publisher_platforms:
                     count -= 1
                     continue
+
                 reach_fb = account.get_reach_estimate(
                     params=params)[0].get('users', 0)
 

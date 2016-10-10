@@ -212,6 +212,16 @@ def seed_data(apps, schema_editor):
         roles_to_check="",
         id="product_audience_est")
 
+    Sample.objects.create(
+        hide_in_gallery=True,
+        view_class="AutobotConfigEditorView",
+        description="Autobot config editor",
+        view_module="autobot_config_editor",
+        seo_description="Autobot config editor",
+        friendly_name="Autobot config editor",
+        roles_to_check="",
+        id="autobot_config")
+
     # <<< AUTO GENERATED SAMPLE OBJECTS
 
 

@@ -101,21 +101,41 @@ class AudienceNetworkOptinSample:
         for adset in adsets:
             if adset[AdSet.Field.effective_status] in desired_campaign_status:
 
-                device_platforms = set(
-                    adset[AdSet.Field.targeting][TargetingSpecsField.device_platforms]
-                )
+                """
+                'devide_platforms', 'publisher_platforms' and
+                'facebook_positions' could be absent for the default of 'ALL'
+                """
+                device_platforms = None
+                if TargetingSpecsField.device_platforms in \
+                        adset[AdSet.Field.targeting]:
+                    device_platforms = set(
+                        adset[AdSet.Field.targeting][
+                            TargetingSpecsField.device_platforms]
+                    )
 
-                publisher_platforms = set(
-                    adset[AdSet.Field.targeting][TargetingSpecsField.publisher_platforms]
-                )
+                publisher_platforms = None
+                if TargetingSpecsField.publisher_platforms in \
+                        adset[AdSet.Field.targeting]:
+                    publisher_platforms = set(
+                        adset[AdSet.Field.targeting][
+                            TargetingSpecsField.publisher_platforms]
+                    )
 
-                facebook_positions = set(
-                    adset[AdSet.Field.targeting][TargetingSpecsField.facebook_positions]
-                )
+                facebook_positions = None
+                if TargetingSpecsField.facebook_positions in \
+                        adset[AdSet.Field.targeting]:
+                    facebook_positions = set(
+                        adset[AdSet.Field.targeting][
+                            TargetingSpecsField.facebook_positions]
+                    )
 
-                if 'feed' in facebook_positions and 'mobile' in device_platforms:
+                if ((facebook_positions is None or
+                        'feed' in facebook_positions) and
+                    (device_platforms is None or
+                        'mobile' in device_platforms)):
 
-                    if 'audience_network' in publisher_platforms:
+                    if (publisher_platforms is None or
+                            'audience_network' in publisher_platforms):
                         # audience network already enabled, so just pass
                         continue
                     else:

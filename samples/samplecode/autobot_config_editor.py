@@ -25,20 +25,12 @@
 
 ***
 
-<img class="title-img"
-    src="/static/images/carouselappad_title.jpg" />
-
-
 This sample editor shows how to use the Marketing API to create and save a
 configuration fle for Autobot.
-
-## References:
 
 """
 
 
 class AutobotConfigEditorSample:
     """
-    This class provides a funciton (`carousel_app_ad_create`) to create
-    a mobile app install ad in the carousel format with Facebook Marketing API.
     """

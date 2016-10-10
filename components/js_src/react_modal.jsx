@@ -73,7 +73,7 @@ define(['jquery', 'react'], function($, React) {
       return (
         <div>
           <div className="modal fade" id={targetId + '_modal'}
-          tabIndex="-1" role="dialog"
+          tabIndex="-1" role="dialog" 
           aria-labelledby={targetId + '_label'} aria-hidden="true">
             <div className="modal-dialog modal-lg">
               <div className="modal-content">

@@ -122,6 +122,8 @@ function($, React, selectize, fbutils, ReactModal, AppInfo) {
     var onSave = function() {
       // Write out the currently selected app
       $('#' + appSelectElementId).val(JSON.stringify(currentApp));
+      // Work-around to leverage onblur event as a substitute for onchange.
+      $('#' + appSelectElementId).focus();
     };
 
     var onClose = function() {

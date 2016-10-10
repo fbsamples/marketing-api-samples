@@ -7,6 +7,5 @@ docs/templates/php.html
 *.swp
 *.swo
 staticfiles
-muse/settings.py
 components/static/scripts/components/*
 node_modules
