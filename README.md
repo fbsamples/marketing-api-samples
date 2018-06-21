@@ -1,3 +1,5 @@
+** THIS REPO HAS BEEN ARCHIVED AND IS NO LONGER BEING ACTIVELY MAINTAINED **
+
 # Facebook Marketing API Samples (Muse)
 Facebook Marketing API Samples is a package of samples that demonstrate how to
 use the Marketing API SDK to implement actual use cases.
