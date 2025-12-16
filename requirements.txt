@@ -14,7 +14,7 @@ django-sslserver==0.15
 django-toolbelt==0.0.1
 facebookads==2.7.1
 gfm==0.0.3
-gunicorn==19.1.1
+gunicorn==22.0.0
 kombu==3.0.26
 Mako==1.0.1
 Markdown==2.4.1
