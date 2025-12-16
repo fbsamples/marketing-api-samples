@@ -28,7 +28,7 @@ pyflakes==0.8.1
 Pygments==2.0.1
 pytz==2015.4
 quik==0.2.2
-requests==2.4.3
+requests==2.32.4
 six==1.8.0
 SQLAlchemy==0.9.8
 sqlparse==0.1.15
