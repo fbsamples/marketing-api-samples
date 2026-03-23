@@ -22,7 +22,7 @@ MarkupSafe==0.23
 mock==1.0.1
 pdoc==0.3.1
 pep8==1.6.2
-Pillow==2.7.0
+Pillow==10.3.0
 psycopg2==2.5.4
 pyflakes==0.8.1
 Pygments==2.0.1
