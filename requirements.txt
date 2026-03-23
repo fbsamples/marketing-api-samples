@@ -31,7 +31,7 @@ quik==0.2.2
 requests==2.4.3
 six==1.8.0
 SQLAlchemy==0.9.8
-sqlparse==0.1.15
+sqlparse==0.5.4
 static3==0.5.1
 wheel==0.24.0
 whitenoise==1.0.6
