@@ -17,7 +17,7 @@ gfm==0.0.3
 gunicorn==19.1.1
 kombu==3.0.26
 Mako==1.0.1
-Markdown==2.4.1
+Markdown==3.8.1
 MarkupSafe==0.23
 mock==1.0.1
 pdoc==0.3.1
